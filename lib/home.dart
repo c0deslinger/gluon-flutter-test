@@ -9,16 +9,50 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.all(32),
-        child: Row(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(child: WidgetTestPage()),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const VerticalDivider(),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const WidgetTestPage()));
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.blue.shade800,
+                foregroundColor: Colors.blue.shade800,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                side: BorderSide(color: Colors.blue.shade800),
+              ),
+              child: const Text(
+                'Widget Test Page',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
             ),
-            Expanded(child: LogicTestPage())
+            const SizedBox(height: 10),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LogicTestPage()));
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.blue.shade800,
+                foregroundColor: Colors.blue.shade800,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                side: BorderSide(color: Colors.blue.shade800),
+              ),
+              child: const Text(
+                'Logic Test Page',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            )
           ],
         ),
       ),
