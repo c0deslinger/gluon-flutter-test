@@ -51,6 +51,7 @@ class CustomTextFieldState extends State<CustomTextField> {
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               widget.label,
@@ -58,6 +59,7 @@ class CustomTextFieldState extends State<CustomTextField> {
             ),
             const SizedBox(height: 8),
             Container(
+              padding: const EdgeInsets.symmetric(vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
@@ -73,6 +75,7 @@ class CustomTextFieldState extends State<CustomTextField> {
                 style: const TextStyle(color: Colors.black),
                 inputFormatters: widget.inputFormatters,
                 decoration: InputDecoration(
+                  // isDense: true,
                   suffixIcon: (!isInitState &&
                           (isValidValue &&
                               (widget.showInputCorrectIcon ?? false)))
@@ -81,7 +84,8 @@ class CustomTextFieldState extends State<CustomTextField> {
                           color: Colors.green,
                         )
                       : null,
-                  contentPadding: const EdgeInsets.all(8),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   prefixIcon: widget.prefixIcon,
                   hintText: widget.label,
                   hintStyle: const TextStyle(color: Colors.grey),
@@ -109,6 +113,7 @@ class CustomTextFieldState extends State<CustomTextField> {
         if (!(isInitState || isValidValue))
           Positioned(
             right: 12,
+            top: 4,
             child: CustomErrorTooltip(
               message: "${widget.label} cannot be empty",
             ),
