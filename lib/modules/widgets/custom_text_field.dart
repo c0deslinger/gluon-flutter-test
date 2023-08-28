@@ -98,7 +98,7 @@ class CustomTextFieldState extends State<CustomTextField> {
                   }
                   isInitState = false;
                   setState(() {
-                    value = value;
+                    currentValue = value;
                     validateUserInput();
                   });
                 },
